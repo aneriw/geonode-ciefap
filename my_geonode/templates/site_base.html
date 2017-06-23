@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+{% block extra_head %}
+      <link href="{{ STATIC_URL }}css/site_base.css" rel="stylesheet"/>
+{% endblock %}
+{% block extra_tab %}
+<ul class="nav navbar-nav">
+		  <style type="text/css">
+			
+			* {
+				margin:auto;
+				padding:0px;
+			}
+			
+			#header {
+				margin:auto;
+				width:600px;
+				sans-serif, font-family:Arial, Helvetica;
+			}
+			
+			ul, ol {
+				list-style:none;
+			}
+			
+			.nav > li {
+				float:left;
+			}
+			
+			.nav li a {
+				
+				color:#fff;
+				text-decoration:none;
+				padding:22px 12px;
+				display:block;
+				
+			}
+			
+			.nav li a:hover {
+				background-color:#283b0c;
+				color:#fff
+			}
+			
+			
+			.nav li ul {
+				background-color:rgba(0, 0, 0, 0.5);
+				display:none;
+				position:absolute;
+				min-width:165px;
+				color:#fff
+				}
+			
+			.nav li:hover > ul {
+				display:block;
+			}
+			
+			.nav li ul li {
+				position:relative;
+			}
+			
+			.nav li ul li ul {
+				position:right;
+				width:350px;
+				left:165px;
+				top:0px;
+			}
+			
+		</style>
+<li><a href="#">Enlaces a otras IDE<span class="caret"></span></a>
+					<ul>
+						<li><a href="">Argentina</a>
+							<ul>
+								<li><a href="https://ide.ign.gob.ar/portal/home/" target="_blank">Instituto Geográfico Nacional (IGN)</a></li>
+								<li><a href="http://catalogo.idera.gob.ar/geonetwork/srv/spa/catalog.search#/home" target="_blank">IDERA</a></li>
+								<li><a href="http://mapas.ambiente.gob.ar/" target="_blank">Ministerio de Ambiente y Desarrollo Sustentable</a></li>
+								<li><a href="http://sig.se.gob.ar/geoportal/" target="_blank">Ministerio de Energía y Minería</a></li>
+								<li><a href="http://ide.agroindustria.gob.ar/visor/" target="_blank">Ministerio de Agroindustria</a></li>
+								<li><a href="https://geoportal.conae.gov.ar/geoexplorer/composer/" target="_blank">CONAE</a></li>
+								<li><a href="https://geonode.senasa.gov.ar/layers/?limit=100&offset=0" target="_blank">SENASA</a></li>
+							</ul>
+						</li>
+						<li><a href="">Neuquén</a>
+							<ul>
+								<li><a href="http://gisestadisticanqn.neuquen.gov.ar/" target="_blank">Dirección General de Estadística y Censo</a></li>
+					<li><a href="http://rechidr.neuquen.gov.ar:8080/dprh/composer/" target="_blank">Dirección Provincial de Recursos hídricos</a></li>
+							</ul>
+						</li>
+						<li><a href="">Río Negro</a>
+							<ul>
+								<li><a href="http://ide.extranet.rionegro.gov.ar/" target="_blank">IDE Provincia</a></li>
+							</ul>
+						</li>
+						<li><a href="">Chubut</a>
+							<ul>
+								<li><a href="http://ide.estadistica.chubut.gov.ar/mapas/" target="_blank">Dirección General de Estadística y Censo</a></li>
+								<li><a href="http://www.catastro.chubut.gov.ar/cbtweb/forms/Main.aspx" target="_blank">Dirección General de Catastro e Información Territorial</a></li>
+							</ul>
+						</li>
+						<li><a href="">Santa Cruz</a>
+							<ul>
+								<li><a href="http://www.sitsantacruz.gob.ar/" target="_blank">Sistema de Información Territorial</a></li>
+
+							</ul>
+						</li>
+						<li><a href="">Tierra del Fuego</a>
+							<ul>
+								<li><a href="">(No se ha encontrado ninguna IDE para esta provincia)</a></li>
+							</ul>
+						</li>
+					</ul>
+				
+{% comment %}
+Add Tab for Third Party Apps
+<li>
+ <a href="{{ PROJECT_ROOT }}app">App</a>
+</li>
+
+{% endcomment %}
+{% endblock %}

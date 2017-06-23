@@ -1,0 +1,31 @@
+{% extends 'index.html' %}
+{% load i18n %}
+{% comment %}
+This is where you can override the hero area block. You can simply modify the content below or replace it wholesale to meet your own needs. 
+{% endcomment %}
+  {% block hero %}
+   <div class="jumbotron" style="background-image: url(http://192.168.0.56/static/geonode/img/Capas_gr1.png);background-repeat: no-repeat;background-color: black;">
+    <div class="container">
+		<div id="container" style="width:100%;">                                   
+			<div id="left" style="float:left; width:60%; color:white;"> <h1>{% trans "Welcome" %}</h1>
+				<div>
+				<p style="font-size:26px">{% blocktrans %}Bienvenido al GeoPortal de CIEFAP. Aquí podrá ver, consultar, combinar y descargar la información geoespacial producida en nuestro laboratorio.{% endblocktrans %}</p>
+				<p style="font-size:26px">{% blocktrans %}Esperamos que le sea de utilidad. Ante cualquier duda o sugerencia, no dude en comunicarse con nosotros.{% endblocktrans %}</p>
+				<br/>
+				</div>
+				<div>
+				<br/>
+				<p style="font-size:18px">{% blocktrans %} Para conocer más acerca de CIEFAP y el Área de Geomática, visitá nuestras páginas web: {% endblocktrans %}</p>
+				<p><u>{% blocktrans %}<a href="http://ciefap.diamo.com.ar/" target="_blank">Área de Geomática   </a><br/><a href="http://www.ciefap.org.ar/" target="_blank">   CIEFAP</a>{% endblocktrans %}</u></p>
+				<p style="font-size:18px">{% blocktrans %} Para mejorar tu experiencia en el uso de este portal, lea nuestra {% endblocktrans %}<u><a href="https://sites.google.com/view/guiausuarioportalciefap/home" target="_blank">Guía de usuario</a>
+				</div>
+			</div>
+				 
+			<div id="right" !style="float:right; width:50%;"> <!img src = "http://surnoticias.com.ar/data/img_cont/img_imagenes/3940.jpg" style="width:525px; height:376px;" />
+			</div>    
+				
+		</div>       
+    </div>
+  </div>
+  
+  {% endblock %}
