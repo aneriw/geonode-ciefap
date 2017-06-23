@@ -17,7 +17,7 @@ SITEURL = 'http://192.168.0.56/'
 DATABASE_ENGINE = 'postgresql_psycopg2'
 DATABASE_NAME = 'geonode'
 DATABASE_USER = 'geonode'
-DATABASE_PASSWORD = 'vQZQHyGg'
+DATABASE_PASSWORD = 'XXXXXXXXXXXXXXXXXXXXXX'
 DATABASE_HOST = 'localhost'
 DATABASE_PORT = '5432'
 
@@ -49,7 +49,7 @@ OGC_SERVER = {
         'LOCATION' : 'http://192.168.0.56:8080/geoserver/',
         'PUBLIC_LOCATION' : GEOSERVER_URL,
         'USER' : 'admin',
-        'PASSWORD' : 'geoserver',
+        'PASSWORD' : 'XXXXXXXXXXXXXXXXXXxxxxx',
         'MAPFISH_PRINT_ENABLED' : True,
         'PRINT_NG_ENABLED' : True,
         'GEONODE_SECURITY_ENABLED' : True,
@@ -72,7 +72,7 @@ STATIC_ROOT = '/var/www/geonode/static/'
 
 # secret key used in hashing, should be a long, unique string for each
 # site.  See http://docs.djangoproject.com/en/1.2/ref/settings/#secret-key
-SECRET_KEY = 'AO9OtyHoCvgRtxq6Mj'
+SECRET_KEY = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXxx'
 
 
 CATALOGUE = {
@@ -158,7 +158,7 @@ LAYER_PREVIEW_LIBRARY = 'geoext'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'geop.adm1@gmail.com'
-EMAIL_HOST_PASSWORD = 'admingis2016'
+EMAIL_HOST_PASSWORD = 'XXXXXXXXXXXXXXXXXXXXXXXxxx'
 EMAIL_PORT = 587
 
 #ACCOUNT_NOTIFY_ON_PASSWORD_CHANGE = True
