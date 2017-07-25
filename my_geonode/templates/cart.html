@@ -1,0 +1,11 @@
+<div class="panel panel-default" id="composerCart">
+  <div class="panel-heading">Cart</div>
+  <div style="color:#ffffff; text-align:center; background-color:#90bf51;border-color:#527a1d;" class="panel-heading">Servicios WFS y WMS</div>
+  <div class="panel-body"
+		style="float: left; display: inline; width: auto; word-break: break-all; word-wrap: break-word;">
+		<p style="font-size:12px" ><b>WFS:</b> <a href="http://192.168.0.34/geoserver/ows?service=wfs&version=2.0&request=GetCapabilities"> http://192.168.0.34/geoserver/ows?service=wfs&version=2.0&request=GetCapabilities </a>  <br> <b>WMS:</b>   <a href="http://192.168.0.34/geoserver/ows?service=wms&version=1.3.0&request=GetCapabilities">http://192.168.0.34/geoserver/ows?service=wms&version=1.3.0&request=GetCapabilities </a></p>
+  </div>
+  <ul class="list-group">
+    <li class="list-group-item" ng-repeat="resource in cart.getCart().items">{{ resource.title | limitTo: 25}}{{ resource.title.length > 25 ? '...' : '' }}<button class="btn btn-default btn-xs pull-right" ng-click="cart.removeItem(resource)"><i class="fa fa-remove fa-lg"></i></button></li>
+  </ul>
+</div>

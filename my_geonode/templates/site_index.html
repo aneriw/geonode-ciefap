@@ -3,21 +3,22 @@
 {% comment %}
 This is where you can override the hero area block. You can simply modify the content below or replace it wholesale to meet your own needs. 
 {% endcomment %}
+{% block title %} {% trans "GeoPortal CIEFAP-NodoBAP" %} {% endblock %}
   {% block hero %}
    <div class="jumbotron" style="background-image: url(http://192.168.0.56/static/geonode/img/Capas_gr1.png);background-repeat: no-repeat;background-color: black;">
     <div class="container">
 		<div id="container" style="width:100%;">                                   
-			<div id="left" style="float:left; width:60%; color:white;"> <h1>{% trans "Welcome" %}</h1>
+			<div id="left" style="float:left; width:60%; color:white;"> <h2>{% trans "GeoPortal" %}<br/>CIEFAP - Nodo Bosque Andino Patagónico</h2>
 				<div>
-				<p style="font-size:26px">{% blocktrans %}Bienvenido al GeoPortal de CIEFAP. Aquí podrá ver, consultar, combinar y descargar la información geoespacial producida en nuestro laboratorio.{% endblocktrans %}</p>
-				<p style="font-size:26px">{% blocktrans %}Esperamos que le sea de utilidad. Ante cualquier duda o sugerencia, no dude en comunicarse con nosotros.{% endblocktrans %}</p>
+				<p style="font-size:26px">{% blocktrans %} Un portal para compartir, utilizar, crear mapas y descargar datos espaciales de Patagonia.{% endblocktrans %}</p>
+				<p style="font-size:22px">{% blocktrans %}¿Dudas o sugerencias? comuníquese con nosotros.{% endblocktrans %}</p>
 				<br/>
 				</div>
 				<div>
 				<br/>
 				<p style="font-size:18px">{% blocktrans %} Para conocer más acerca de CIEFAP y el Área de Geomática, visitá nuestras páginas web: {% endblocktrans %}</p>
 				<p><u>{% blocktrans %}<a href="http://ciefap.diamo.com.ar/" target="_blank">Área de Geomática   </a><br/><a href="http://www.ciefap.org.ar/" target="_blank">   CIEFAP</a>{% endblocktrans %}</u></p>
-				<p style="font-size:18px">{% blocktrans %} Para mejorar tu experiencia en el uso de este portal, lea nuestra {% endblocktrans %}<u><a href="https://sites.google.com/view/guiausuarioportalciefap/home" target="_blank">Guía de usuario</a>
+				<p style="font-size:18px">{% blocktrans %} Para mejorar tu experiencia en el uso de este portal, lea nuestra {% endblocktrans %}<u><a href="https://sites.google.com/view/guiausuarioportalciefap/p%C3%A1gina-principal" target="_blank">Guía de usuario</a>
 				</div>
 			</div>
 				 
@@ -29,3 +30,153 @@ This is where you can override the hero area block. You can simply modify the co
   </div>
   
   {% endblock %}
+
+  {% block showcase %}
+  <section id="showcase">
+    <div class="container">
+      <div class="row">
+        <h2 style="color:#333">Mapas destacados</h2>
+        {% verbatim %}
+        <div ng-app="featured">
+          <div ng-repeat="item in featured | limitTo:4">
+            <div class="col-md-3">
+              <a href="{{ item.detail_url }}"><img ng-src="{{ item.thumbnail_url }}" /></a>
+              <h4>{{ item.title}}</h4>
+            </div>
+          </div>
+        </div>
+  		{% endverbatim %}
+      </div>
+      <p><a href="/search/">Explore all datasets</a></p>
+    </div>
+  </section>
+  {% endblock %}
+  
+  <!--
+  {% block datasets %}
+  <section id="datasets">
+  	<div class="container">
+  		<div class="row">
+  			<div class="container text-center">
+  				<h1>Discover the available datasets.</h1>
+  				<div class="col-xs-4 col-sm-2">
+  					<a href="/search/?limit=100&offset=0&category__identifier__in=boundaries&category__identifier__in=planningCadastre" data-toggle="tooltip" data-placement="auto"
+  						title="Political and administrative boundaries. Land use maps, zoning maps, cadastral surveys, land ownership.">
+  						<div class="category">
+  							<i class="fa fa-flag fa-4x"></i>
+  							<h4>Boundaries</h4>
+  						</div>
+  					</a>
+  				</div>
+  				<div class="col-xs-4 col-sm-2">
+  					<a href="/search/?limit=100&offset=0&category__identifier__in=structure&category__identifier__in=intelligenceMilitary&category__identifier__in=utilitiesCommunication" data-toggle="tooltip" data-placement="auto"
+  						title="Buildings, museums, churches, factories, housing, monuments, shops, towers. Energy, water and waste systems and communications infrastructure and services. Military bases, structures, activities." >
+  						<div class="category">
+  							<i class="fa fa-home fa-4x"></i>
+  							<h4>Buildings</h4>
+  						</div>
+  					</a>
+  				</div>
+  				<div class="col-xs-4 col-sm-2">
+  					<a href="/search/?limit=100&offset=0&category__identifier__in=climatologyMeteorologyAtmosphere" data-toggle="tooltip" data-placement="auto"
+  						title="Cloud cover, weather, climate, atmospheric conditions, climate change, precipitation" >
+  						<div class="category">
+  							<i class="fa fa-umbrella fa-4x"></i>
+  							<h4>Climate</h4>
+  						</div>
+  					</a>
+  				</div>
+  				<div class="col-xs-4 col-sm-2">
+  					<a href="/search/?limit=100&offset=0&category__identifier__in=elevation" data-toggle="tooltip" data-placement="auto"
+  						title="Altitude, bathymetry, digital elevation models, slope, derived products" >
+  						<div class="category">
+  							<i class="fa fa-level-up fa-4x"></i>
+  							<h4>Elevation</h4>
+  						</div>
+  					</a>
+  				</div>
+  				<div class="col-xs-4 col-sm-2">
+  					<a href="/search/?limit=100&offset=0&category__identifier__in=geoscientificInformation" data-toggle="tooltip" data-placement="auto"
+  						title="Geophysical features and processes, geology, minerals, sciences dealing with the composition, structure and origin of the earth s rocks, risks of earthquakes, volcanic activity, landslides, gravity information, soils, permafrost, hydrogeology, erosion." >
+  						<div class="category">
+  							<i class="fa fa-globe fa-4x"></i>
+  							<h4>Geology</h4>
+  						</div>
+  					</a>
+  				</div>
+  				
+  				<div class="col-xs-4 col-sm-2">
+  					<a href="/search/?limit=100&offset=0&category__identifier__in=imageryBaseMapsEarthCover" data-toggle="tooltip" data-placement="auto"
+  						title="Land cover, topographic maps, imagery, unclassified images, annotations." >
+  						<div class="category">
+  							<i class="fa fa-tree fa-4x"></i>
+  							<h4>Land Cover</h4>
+  						</div>
+  					</a>
+  				</div>
+  				<div class="col-xs-4 col-sm-2">
+  					<a href="/search/?limit=100&offset=0&category__identifier__in=biota&category__identifier__in=farming&category__identifier__in=environment" data-toggle="tooltip" data-placement="auto"
+  						title="Wildlife, vegetation, biological sciences, ecology, wilderness, sealife, wetlands, habitat. Environmental resources, protection and conservation. Agriculture, irrigation, aquaculture, plantations, herding, pests and diseases affecting crops and livestock" >
+  						<div class="category">
+  							<i class="fa fa-leaf fa-4x"></i>
+  							<h4>Nature</h4>
+  						</div>
+  					</a>
+  				</div>
+  				
+  				<div class="col-xs-4 col-sm-2">
+  					<a href="/search/?limit=100&offset=0&category__identifier__in=economy&category__identifier__in=society" data-toggle="tooltip" data-placement="auto"
+  						title="Settlements, anthropology, archaeology, education, traditional beliefs, demographic data, crime and justice, census information. Economic activities, conditions and employment." >
+  						<div class="category">
+  							<i class="fa fa-male fa-4x"></i>
+  							<h4>Incendios</h4>
+  						</div>
+  					</a>
+  				</div>
+  				<div class="col-xs-4 col-sm-2">
+  					<a href="/search/?limit=100&offset=0&category__identifier__in=transportation" data-toggle="tooltip" data-placement="auto"
+  						title="Roads, airports/airstrips, shipping routes, tunnels, nautical charts, vehicle or vessel location, aeronautical charts, railways." >
+  						<div class="category">
+  							<i class="fa fa-road fa-4x"></i>
+  							<h4>Transportation</h4>
+  						</div>
+  					</a>
+  				</div>
+  				<div class="col-xs-4 col-sm-2">
+  					<a href="/search/?limit=100&offset=0&category__identifier__in=inlandWaters&category__identifier__in=oceans" data-toggle="tooltip" data-placement="auto"
+  						title="Rivers and glaciers, salt lakes, water utilization plans, dams, currents, floods. Water quality, hydrographic charts, tides, tidal waves, coastal information, reefs." >
+  						<div class="category">
+  							<i class="fa fa-tint fa-4x"></i>
+  							<h4>Water</h4>
+  						</div>
+  					</a>
+  				</div>
+  			</div>
+  		</div>
+  	</div>
+  </section>
+  {% endblock %}
+  -->
+  {% block datasets %}
+  <section id="datasets">
+  	<div class="container" style="margin-bottom:35px">
+  		<div class="row">
+  			<div class="container text-center">
+  				<h1>Capas disponibles por tema</h1>
+  						<a title="Registro histórico de incendios" href="http://192.168.0.56/layers/?limit=100&offset=0&keywords__slug__in=Incendios" style="color:transparent;"/a><button type="button" class="markers" style="background:orange; background-image: url(http://192.168.0.34/static/geonode/img/128-128fire-marker.png);border-radius:10px;margin:15px;vertical-align:top;margin-left:30px;color:black;font-size:22px;padding-top:128px;margin-bottom:35px;background-repeat: no-repeat; width:128px;height:128px;">Incendios</button>
+
+						<a title="Clasificación de cobertura del suelo de la región bosque andino-patagónico." href="http://192.168.0.56/layers/?limit=100&offset=0&keywords__slug__in=Cobertura_del_suelo_BAP" style="color:transparent;"/a><button type="button" class="markers" style="background:#4a5c91; background-image: url(http://192.168.0.34/static/geonode/img/128-128nature-marker.png);border-radius:10px;margin:15px;vertical-align:top;margin-left:30px;color:black;font-size:22px;padding-top:128px;margin-bottom:35px;background-repeat: no-repeat; width:128px;height:128px;">Cobertura del suelo</button>
+
+						<a title="Coberturas de plantaciones de coníferas y de cortinas." href="http://192.168.0.56/layers/?limit=100&offset=0&keywords__slug__in=Producci%C3%B3n_forestal" style="color:transparent;"/a><button type="button" class="markers" style="background:green; background-image: url(http://192.168.0.34/static/geonode/img/128-128forest-marker.png);border-radius:10px;margin:15px;vertical-align:top;margin-left:30px;color:black;font-size:22px;padding-top:128px;margin-bottom:35px;background-repeat: no-repeat; width:128px;height:128px;">Producción forestal</button>
+
+						<a title="Datos de relevamientos, inventarios y áreas de estudio de diversos proyectos de investigación de CIEFAP y otras instituciones. Explorá en qué puntos del planeta estamos investigando." href="http://192.168.0.56/layers/?limit=100&offset=0&keywords__slug__in=Relevamientos_inventarios_%C3%A1reas-de-estudio" style="color:transparent;"/a><button type="button" class="markers" style="background:#e03742; background-image: url(http://192.168.0.34/static/geonode/img/128-128map-marker.png);border-radius:10px;margin:15px;vertical-align:top;margin-left:30px;color:black;font-size:22px;padding-top:128px;margin-bottom:35px;background-repeat: no-repeat; width:128px;height:128px;">Áreas de estudio</button>
+
+						<a title="Coberturas de hidrografía, topografía, clima y otras variables ambientales" href="http://192.168.0.56/layers/?limit=100&offset=0&keywords__slug__in=Ambiente&keywords__slug__in=Climatolog%C3%ADa&keywords__slug__in=Hidrolog%C3%ADa&keywords__slug__in=Topograf%C3%ADa"< style="color:transparent;"/a><button type="button" class="markers" style="background:#53b762; background-image: url(http://192.168.0.34/static/geonode/img/128-128mountain-marker.png);border-radius:10px;margin:15px;vertical-align:top;margin-left:30px;color:black;font-size:22px;padding-top:128px;margin-bottom:35px;background-repeat: no-repeat; width:128px;height:128px;">Ambiente</button>
+
+						<a title="Coberturas de IGN de diversos tipos: Límites políticos, centros poblados, ..." href="http://192.168.0.56/layers/?limit=100&offset=0&keywords__slug__in=Cartograf%C3%ADa%20base&keywords__slug__in=L%C3%ADmites_pol%C3%ADticos&keywords__slug__in=Transporte"< style="color:transparent;"/a><button type="button" class="markers" style="background:#dfeb38; background-image: url(http://192.168.0.34/static/geonode/img/128-128maps-marker.png);border-radius:10px;margin:15px;vertical-align:top;margin-left:30px;color:black;font-size:22px;padding-top:128px;margin-bottom:35px;background-repeat: no-repeat; width:128px;height:128px;">Cartografía base IGN</button>
+  			</div>
+  		</div>
+  	</div>
+  </section>
+  {% endblock %}
+  
